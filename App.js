@@ -38,16 +38,15 @@ export default function App() {
       data: [
         { id: '5', name: 'Burger', price: '$10.00', image: 'https://cdn-icons-png.flaticon.com/512/878/878052.png' },
         { id: '6', name: 'Pizza', price: '$15.00', image: 'https://cdn-icons-png.flaticon.com/512/3595/3595455.png' },
-        { id: '8', name: 'Spaghetti', price: '$12.00', image: 'https://cdn-icons-png.flaticon.com/512/17673/17673050.png' },
+        { id: '7', name: 'Spagheti', price: '$13.00', image: 'https://cdn-icons-png.flaticon.com/512/17673/17673050.png' },
       ],
-      
     },
     {
       title: 'Hot Selling',
       data: [
-        { id: '5', name: 'Burger', price: '$10.00', image: 'https://cdn-icons-png.flaticon.com/512/878/878052.png' },
-        { id: '6', name: 'Pizza', price: '$15.00', image: 'https://cdn-icons-png.flaticon.com/512/3595/3595455.png' },
-        { id: '7', name: 'Banana', price: '$2.00', image: 'https://cdn-icons-png.flaticon.com/512/2494/2494112.png' },
+        { id: '8', name: 'Burger', price: '$10.00', image: 'https://cdn-icons-png.flaticon.com/512/878/878052.png' },
+        { id: '9', name: 'Pizza', price: '$15.00', image: 'https://cdn-icons-png.flaticon.com/512/3595/3595455.png' },
+        { id: '10', name: 'Banana', price: '$2.00', image: 'https://cdn-icons-png.flaticon.com/512/2494/2494112.png' },
       ],
     },
   ];
@@ -73,7 +72,13 @@ export default function App() {
         thumbColor={isEnabled ? '#fff' : '#ddd'} // white when enabled, gray when disabled
       />
 
-      <View style={styles.countBox}>
+      {/* Dynamic Count Box Color */}
+      <View
+        style={[
+          styles.countBox,
+          { backgroundColor: isEnabled ? '#d18b47' : '#fff' }, // Change color based on `isEnabled`
+        ]}
+      >
         <Text style={styles.countText}>Count: {count}</Text>
       </View>
 
@@ -82,7 +87,7 @@ export default function App() {
         onPress={handlePress}
         onLongPress={handleLongPress}
       >
-        <Text style={styles.touchableText}>
+<Text style={styles.touchableText}>
           Click to increment. Long press to reset.
         </Text>
       </Pressable>
@@ -92,7 +97,7 @@ export default function App() {
         sections={DATA}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
-renderSectionHeader={({ section: { title } }) => (
+        renderSectionHeader={({ section: { title } }) => (
           <View style={styles.sectionHeaderContainer}>
             <Text style={styles.sectionHeader}>{title}</Text>
           </View>
@@ -114,10 +119,9 @@ const styles = StyleSheet.create({
   },
   countBox: {
     width: 200,
-    height: 90,
+    height: 220,
     borderWidth: 1,
     borderColor: '#000',
-    backgroundColor: '#d18b47',
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 20,
@@ -139,8 +143,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   touchableText: {
-    fontSize: 14,
+    fontSize: 20,
     textAlign: 'center',
+    width:150,
     fontFamily: 'monospace',
   },
   listContent: {
@@ -151,8 +156,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'orange',
     paddingVertical: 6,
     paddingHorizontal: 12,
-    alignItems: 'center',       
-    justifyContent: 'center',
   },
   sectionHeader: {
     fontSize: 18,
