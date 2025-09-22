@@ -38,7 +38,9 @@ export default function App() {
       data: [
         { id: '5', name: 'Burger', price: '$10.00', image: 'https://cdn-icons-png.flaticon.com/512/878/878052.png' },
         { id: '6', name: 'Pizza', price: '$15.00', image: 'https://cdn-icons-png.flaticon.com/512/3595/3595455.png' },
+        { id: '8', name: 'Spaghetti', price: '$12.00', image: 'https://cdn-icons-png.flaticon.com/512/17673/17673050.png' },
       ],
+      
     },
     {
       title: 'Hot Selling',
